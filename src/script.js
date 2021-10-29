@@ -1,14 +1,20 @@
 // Tarefa 1 - Função para cálculo de salário;
 function calculateSalary(fixedSalary, totalSold) {
 
-    let comUpToTwelveHundred = 3 / 100;
-    let comAboveTwelveHundred = 5 / 100;
+    let salesUpToTwelveHundred = 3 / 100;
+    let salesAboveTwelveHundred = 5 / 100;
+    let parcialResult = 0;
     let result = 0;
 
     if(totalSold <= 1200) {
-        totalSold *= comUpToTwelveHundred;
+
+        totalSold *= salesUpToTwelveHundred;
+
     } else {
-        totalSold *= comAboveTwelveHundred;
+
+        parcialResult = totalSold - 1200;
+        totalSold = (1200 * salesUpToTwelveHundred) + (parcialResult * salesAboveTwelveHundred);
+
     }
 
     result = fixedSalary + totalSold;
@@ -38,8 +44,8 @@ function calculateAge(yearOfBirth, currentYear) {
 
     let ageInYears = currentYear - yearOfBirth;
     let ageInMonths = ageInYears * 12
-    let ageInWeeks = ageInMonths * 4.345;
-    let ageInDays = ageInWeeks * 7;
+    let ageInWeeks = ageInYears * 52;
+    let ageInDays = ageInYears * 365;
 
     return "Você possui " + ageInYears + " anos de idade, " + ageInMonths + " meses de idade, " + ageInWeeks + " semanas de idade e possui " + ageInDays + " dias de idade.";
 }
